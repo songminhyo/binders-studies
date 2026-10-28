@@ -19,6 +19,7 @@
  }
  function fit(){
   const r=stage.getBoundingClientRect(),box=mode==='sheet'?[0,0,2384,1684]:sheets[sheet].crop;
+  image.style.clipPath=mode==='sheet'?'none':`inset(${box[1]}px ${2384-box[2]}px ${1684-box[3]}px ${box[0]}px)`;
   fitScale=Math.min((r.width-24)/(box[2]-box[0]),(r.height-24)/(box[3]-box[1]));
   fitScale=Math.max(.01,fitScale);scale=fitScale;
   x=(r.width-(box[2]-box[0])*scale)/2-box[0]*scale;
