@@ -1,5 +1,5 @@
-# BINDERS / R25 drawing refinements
+# BINDERS / R26 rail and label corrections
 
-https://songminhyo.github.io/binders-studies/#drawings/overall
+https://songminhyo.github.io/binders-studies/#drawings/b
 
-Updated overall and A/B/C vector plans. Incubating Room: 5 upper + 4 lower pods, evenly spaced, complete floor boundaries. Pickup grid, Lounge, Information chairs, Curation displays, Printing stations, Workshop brick contrast, and entrance label alignment refined. Mass and timber payloads unchanged.
+Native Printing Room rails continue from the wall to the station tracks. The upper station faces down. The original sculpture is preserved. The small Lounge shelf, table and two chairs face inward from the lower wall. All room-name boxes are visible on the overall and A/B/C detail plans. Earlier R03 drawing refinements and the mass/timber model payloads are retained.
