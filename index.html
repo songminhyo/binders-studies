@@ -20,7 +20,7 @@ function activate(key,updateHash=true){
     frame.contentWindow.postMessage({type:'study-active',active:selected===name&&!document.hidden},'*');
     if(name==='drawings'){const sheet=location.hash.split('/')[1];if(sheet)frame.contentWindow.postMessage({type:'select-drawing',sheet},location.origin);}
    });
-   if(name==='drawings')frame.src='drawings.html?v=24.1'+(location.hash.split('/')[1]?'#'+location.hash.split('/')[1]:'');
+   if(name==='drawings')frame.src='drawings.html?v=25.1'+(location.hash.split('/')[1]?'#'+location.hash.split('/')[1]:'');
    else frame.srcdoc=new TextDecoder().decode(Uint8Array.from(atob(sources[name]),c=>c.charCodeAt(0)));
   }else if(loaded.has(name))frame.contentWindow.postMessage({type:'study-active',active:active&&!document.hidden},'*');
  }
