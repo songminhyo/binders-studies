@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020302">
+<title>BINDERS / DRAWINGS</title>
+<style>
+:root{color-scheme:dark;--paper:#020302;--ink:#eee;--muted:#adb3aa;--line:#ffffff25}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+body{display:flex;flex-direction:column;padding:0 max(22px,env(safe-area-inset-right)) env(safe-area-inset-bottom) max(22px,env(safe-area-inset-left));overflow:hidden}
+button,a{font:11px Arial,Helvetica,sans-serif;color:inherit}button{cursor:pointer}button,a.control{min-height:44px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(135deg,#ffffff0b,#ffffff03);padding:10px 14px;box-shadow:inset 0 1px #ffffff12;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button:hover,a.control:hover{border-color:#ffffff60}button:focus-visible,a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}button[aria-pressed=true]{background:linear-gradient(135deg,#eeeede,#c8cec6);color:#0b1009;border-color:transparent}button:disabled{opacity:.4;cursor:wait}
+.heading{padding:21px 0 17px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line)}
+.eyebrow{font:9px Consolas,monospace;letter-spacing:1.8px;color:var(--muted)}h1{font-size:22px;letter-spacing:-.5px;margin:7px 0 8px;font-weight:600}.description{font-size:11px;color:var(--muted);margin:0;line-height:1.5}.edition{text-align:right;white-space:nowrap;font:9px/1.8 Consolas,monospace;letter-spacing:1px;color:var(--muted)}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;flex-wrap:wrap}.sheets,.modes{display:flex;gap:5px}.sheet{min-width:58px}.actions{display:flex;align-items:center;gap:12px}.sheets button{padding:10px 16px}.mode{padding:10px 12px}
+.stage{position:relative;flex:1;min-height:100px;overflow:hidden;border:1px solid var(--line);background:var(--paper);isolation:isolate;touch-action:none;user-select:none;cursor:grab;border-radius:2px}
+.stage.dragging{cursor:grabbing}.stage:focus-visible{outline:1px solid #aaa;outline-offset:-2px}#drawing{position:absolute;left:0;top:0;width:2384px;height:1684px;max-width:none;pointer-events:none;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
+.stamp{position:absolute;left:15px;top:14px;font:9px Consolas,monospace;letter-spacing:1px;color:var(--muted);pointer-events:none;z-index:1;background:#020302d9;padding:7px 9px;border-radius:5px}
+.status{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);background:var(--paper);z-index:2}.status[hidden]{display:none}.status.error{color:#e9d3b7}.error a{color:inherit}.bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 13px;min-height:62px}.help{font:9px/1.8 Consolas,monospace;letter-spacing:.5px;color:var(--muted);margin:0}.zoom{display:flex;align-items:center;gap:5px}.zoom button{min-width:44px;padding:10px}.zoom output{min-width:54px;text-align:center;font:10px Consolas,monospace}.reset{margin-left:5px;min-width:68px!important}
+@media(max-width:700px){body{padding-left:12px;padding-right:12px}.heading{padding-top:15px;padding-bottom:13px}h1{font-size:19px}.edition{display:none}.toolbar{gap:8px;padding:9px 0}.actions{gap:7px}.sheets button{padding:8px 12px;min-width:44px}.sheets button:first-child{min-width:72px}.modes{gap:3px}.mode{padding:8px 10px}.help{font-size:8px}.zoom{gap:2px}.zoom output{min-width:42px}.bottom{gap:5px;padding-bottom:10px}.description{font-size:10px}.pdf-label{display:none}.control{padding:10px!important}.stamp{font-size:8px;left:8px;top:8px}}
+@media(max-width:460px){.toolbar{display:grid;grid-template-columns:1fr}.actions{justify-content:space-between}.sheets{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr}.help{max-width:110px}.heading{padding-top:10px;padding-bottom:10px}h1{font-size:17px;margin:5px 0}.eyebrow{font-size:8px}.bottom{min-height:58px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="heading">
+ <div><div class="eyebrow">BINDERS / DRAWING ARCHIVE</div><h1 id="sheet-title">Overall floor plan</h1><p class="description" id="sheet-description">Building arrangement and spatial connections.</p></div>
+ <div class="edition">DRAWINGS / R02<br>2026.10.29</div>
+</header>
+<div class="toolbar">
+ <nav class="sheets" aria-label="Drawing sheets">
+  <button type="button" data-sheet="overall" aria-pressed="true">Overall</button>
+  <button type="button" data-sheet="a" aria-pressed="false">A / 01</button>
+  <button type="button" data-sheet="b" aria-pressed="false">B / 01</button>
+  <button type="button" data-sheet="c" aria-pressed="false">C / 01</button>
+ </nav>
+ <div class="actions"><div class="modes" role="group" aria-label="Drawing framing"><button class="mode" id="mode-plan" aria-pressed="true">Drawing</button><button class="mode" id="mode-sheet" aria-pressed="false">Full sheet</button></div><a class="control" id="pdf" href="BINDERS_OVERALL_BLACK_R02.pdf" target="_blank" rel="noopener" aria-label="Open original vector PDF"><span class="pdf-label">Open </span>&nbsp;PDF ↗</a></div>
+</div>
+<main class="stage" id="stage" tabindex="0" role="region" aria-label="Interactive floor plan. Drag to pan. Pinch, scroll or use plus and minus to zoom. Press zero to fit.">
+ <img id="drawing" width="2384" height="1684" alt="Overall floor plan — vector architectural drawing" draggable="false" hidden>
+ <div class="stamp" id="stamp">OVERALL / A1 / 1:150</div>
+ <div class="status" id="status" role="status" aria-live="polite">Loading vector drawing…</div>
+</main>
+<footer class="bottom"><p class="help">DRAG TO PAN / PINCH TO ZOOM<br>VECTOR DRAWING / UNITS mm</p><div class="zoom"><button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value" aria-label="Zoom relative to fit">100%</output><button id="zoom-in" aria-label="Zoom in">+</button><button id="reset" class="reset">Fit view</button></div></footer>
+<script src="drawings.js"></script>
+</body></html>
