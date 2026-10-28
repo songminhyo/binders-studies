@@ -1,5 +1,5 @@
-# BINDERS / R26 rail and label corrections
+# BINDERS / R27 clean rails and annotation scale
 
 https://songminhyo.github.io/binders-studies/#drawings/b
 
-Native Printing Room rails continue from the wall to the station tracks. The upper station faces down. The original sculpture is preserved. The small Lounge shelf, table and two chairs face inward from the lower wall. All room-name boxes are visible on the overall and A/B/C detail plans. Earlier R03 drawing refinements and the mass/timber model payloads are retained.
+R05 vector plans: Printing Room rails share one continuous six-stroke section. Legacy overlapping furniture/frame removed beside the Inoculation Room wall; the storage wall uses fourteen identical modules. Plan text and room-name boxes are 70% of their previous size. Four Information turnstiles use the native silhouette at 70%, without projecting fins. Earlier drawing changes and mass/timber payloads are retained.

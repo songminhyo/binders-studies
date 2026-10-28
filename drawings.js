@@ -3,10 +3,10 @@
  const $ = id => document.getElementById(id);
  const stage=$('stage'), image=$('drawing'), status=$('status');
  const sheets = {
-  overall:{title:'Overall floor plan',description:'Building arrangement and spatial connections.',code:'OVERALL',scale:'1:150',image:'BINDERS_OVERALL_R04.svg',pdf:'BINDERS_OVERALL_BLACK_R04.pdf',crop:[280,245,1675,1420]},
-  a:{title:'Building A / Detail plan',description:'Information · Curation · Clinic · Binding',code:'A-01',scale:'1:100',image:'BINDERS_A_R04.svg',pdf:'BINDERS_ABC_DETAILS_BLACK_UNIFIED_R04.pdf#page=1',crop:[397,367,1987,983]},
-  b:{title:'Building B / Detail plan',description:'Printing · Heating · Storage · Incubating · Inoculation · Pickup · Lounge',code:'B-01',scale:'1:100',image:'BINDERS_B_R04.svg',pdf:'BINDERS_ABC_DETAILS_BLACK_UNIFIED_R04.pdf#page=2',crop:[291,284,2093,1066]},
-  c:{title:'Building C / Workshop detail plan',description:'Workshop · Mobile partitions · Landscaped corridor · Toilets',code:'C-01',scale:'1:100',image:'BINDERS_C_R04.svg',pdf:'BINDERS_ABC_DETAILS_BLACK_UNIFIED_R04.pdf#page=3',crop:[651,315,1733,1035]}
+  overall:{title:'Overall floor plan',description:'Building arrangement and spatial connections.',code:'OVERALL',scale:'1:150',image:'BINDERS_OVERALL_R05.svg',pdf:'BINDERS_OVERALL_BLACK_R05.pdf',crop:[280,245,1675,1420]},
+  a:{title:'Building A / Detail plan',description:'Information · Curation · Clinic · Binding',code:'A-01',scale:'1:100',image:'BINDERS_A_R05.svg',pdf:'BINDERS_ABC_DETAILS_BLACK_UNIFIED_R05.pdf#page=1',crop:[397,367,1987,983]},
+  b:{title:'Building B / Detail plan',description:'Printing · Heating · Storage · Incubating · Inoculation · Pickup · Lounge',code:'B-01',scale:'1:100',image:'BINDERS_B_R05.svg',pdf:'BINDERS_ABC_DETAILS_BLACK_UNIFIED_R05.pdf#page=2',crop:[291,284,2093,1066]},
+  c:{title:'Building C / Workshop detail plan',description:'Workshop · Mobile partitions · Landscaped corridor · Toilets',code:'C-01',scale:'1:100',image:'BINDERS_C_R05.svg',pdf:'BINDERS_ABC_DETAILS_BLACK_UNIFIED_R05.pdf#page=3',crop:[651,315,1733,1035]}
  };
  let sheet='overall',mode='plan',scale=1,fitScale=1,x=0,y=0,loaded=false,request=0;
  const pointers=new Map();
