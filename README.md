@@ -1,3 +1,3 @@
-# BINDERS / R33 linked structure studies
+# BINDERS / R34 refined assembly guides
 
-Selected plan spaces open the matching building timber study. Choose structural groups or tap actual visible mesh triangles to inspect individual members. The selected member is highlighted in white, with a short role description and bounded assembly-stage playback. Related joinery opens the source connection model. Back to plan restores the originating room and focus. Original SVG/PDF geometry, timber model data, mass payload and crisp SVG rendering are preserved.
+Timber alignment guides connect actual mesh vertices to their seated positions, with opposing anchors and a maximum of three guided members. Dashed lines use constant screen spacing, fade in/out and disappear as connections seat. Guides can be toggled. Paused component-stage playback resumes within the same bounded stage. Static frames avoid redundant GPU drawing; viewport/interaction changes redraw immediately. A simple tap retains the named camera orientation. Original mass payload, source timber scene data, R08 SVG/PDF geometry and crisp drawing zoom are unchanged.
