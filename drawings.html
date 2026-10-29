@@ -21,6 +21,14 @@ button:hover,a.control:hover{border-color:#ffffff60}button:focus-visible,a:focus
 @media(max-width:700px){body{padding-left:12px;padding-right:12px}.heading{padding-top:15px;padding-bottom:13px}h1{font-size:19px}.edition{display:none}.toolbar{gap:8px;padding:9px 0}.actions{gap:7px}.sheets button{padding:8px 12px;min-width:44px}.sheets button:first-child{min-width:72px}.modes{gap:3px}.mode{padding:8px 10px}.help{font-size:8px}.zoom{gap:2px}.zoom output{min-width:42px}.bottom{gap:5px;padding-bottom:10px}.description{font-size:10px}.pdf-label{display:none}.control{padding:10px!important}.stamp{font-size:8px;left:8px;top:8px}}
 @media(max-width:460px){.toolbar{display:grid;grid-template-columns:1fr}.actions{justify-content:space-between}.sheets{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr}.help{max-width:110px}.heading{padding-top:10px;padding-bottom:10px}h1{font-size:17px;margin:5px 0}.eyebrow{font-size:8px}.bottom{min-height:58px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+.explorebar{display:flex;align-items:center;gap:10px;padding:0 0 10px;flex-wrap:wrap}.explorebar label{font:9px Consolas,monospace;letter-spacing:1px;color:var(--muted)}.explorebar select{font:12px Arial,sans-serif;color:var(--ink);background:#111410;border:1px solid var(--line);border-radius:8px;padding:10px;min-height:44px;max-width:270px;flex:1}.explorebar select:focus-visible{outline:2px solid var(--ink)}.explorebar select:disabled{opacity:.45}.process-step{font:10px Consolas,monospace;min-width:34px;color:var(--muted)}
+#space-overlay{position:absolute;inset:0 auto auto 0;width:2384px;height:1684px;pointer-events:none;transform-origin:0 0;overflow:visible}#drawing,#space-overlay{will-change:transform}.space-selected{fill:#ffffff0e;stroke:#e7ece0;stroke-width:1.1;stroke-linejoin:round}.space-hover{fill:#ffffff08;stroke:#ffffff60;stroke-width:.8;stroke-linejoin:round}.stage.over-space{cursor:pointer}
+.space-card{position:absolute;z-index:3;right:14px;bottom:14px;width:244px;padding:18px;background:#0b0e0bf5;border:1px solid #ffffff40;border-radius:10px;cursor:default;user-select:text;box-shadow:0 8px 35px #0009;animation:card-enter .3s ease-out}.space-card[hidden]{display:none}.space-card h2{font-size:17px;margin:9px 24px 8px 0;font-weight:500}.space-card p{font-size:12px;line-height:1.6;color:#bac2b5;margin:0}.space-card .eyebrow{font-size:8px;letter-spacing:.6px}.space-card .close-space{position:absolute;right:5px;top:5px;min-width:36px;min-height:36px;padding:6px;border:0;background:none;box-shadow:none;font-size:20px}.space-card .detail-link{margin-top:14px;width:100%}.detail-link[hidden]{display:none}
+@keyframes card-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:760px){.space-card{width:calc(100% - 20px);right:10px;bottom:10px;padding:12px 16px}.space-card h2{font-size:15px;margin:4px 24px 4px 0}.space-card p{font-size:11px;line-height:1.4}.space-card .detail-link{position:absolute;right:44px;top:8px;width:auto;margin:0;min-height:36px;padding:6px;font-size:10px}.space-card .eyebrow{font-size:7px}.explorebar{gap:7px}.explorebar label{display:none}.explorebar select{max-width:none;min-width:130px}.process-step{min-width:28px}}
+@media(max-height:650px){.heading{padding:10px 0}.heading h1{font-size:17px;margin:4px 0}.toolbar{padding:7px 0}.explorebar{padding-bottom:7px}.bottom{min-height:50px;padding:5px 0}.edition{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.space-card{animation:none}}
 </style>
 </head>
 <body>
@@ -37,11 +45,14 @@ button:hover,a.control:hover{border-color:#ffffff60}button:focus-visible,a:focus
  </nav>
  <div class="actions"><div class="modes" role="group" aria-label="Drawing framing"><button class="mode" id="mode-plan" aria-pressed="true">Drawing</button><button class="mode" id="mode-sheet" aria-pressed="false">Full sheet</button></div><a class="control" id="pdf" href="BINDERS_OVERALL_BLACK_R08.pdf" target="_blank" rel="noopener" aria-label="Open original vector PDF"><span class="pdf-label">Open </span>&nbsp;PDF ↗</a></div>
 </div>
+<div class="explorebar" aria-label="Explore the plan"><label for="space-picker">EXPLORE SPACES</label><select id="space-picker" aria-label="Choose a space" disabled><option value="">Choose a space</option></select><button id="process-play" aria-pressed="false" disabled>Play process</button><span class="process-step" id="process-step" aria-live="polite"></span></div>
 <main class="stage" id="stage" tabindex="0" role="region" aria-label="Interactive floor plan. Drag to pan. Pinch, scroll or use plus and minus to zoom. Press zero to fit.">
  <img id="drawing" width="2384" height="1684" alt="Overall floor plan — vector architectural drawing" draggable="false" hidden>
+ <svg id="space-overlay" width="2384" height="1684" aria-hidden="true"></svg>
+ <aside class="space-card" id="space-card" aria-label="Selected space" aria-live="polite" hidden><button class="close-space" id="close-space" aria-label="Close space detail">×</button><div class="eyebrow" id="space-location"></div><h2 id="space-name"></h2><p id="space-description"></p><button class="detail-link" id="open-detail" hidden>Open detail plan ↗</button></aside>
  <div class="stamp" id="stamp">OVERALL / A1 / 1:150</div>
  <div class="status" id="status" role="status" aria-live="polite">Loading vector drawing…</div>
 </main>
-<footer class="bottom"><p class="help">DRAG TO PAN / PINCH TO ZOOM<br>VECTOR DRAWING / UNITS mm</p><div class="zoom"><button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value" aria-label="Zoom relative to fit">100%</output><button id="zoom-in" aria-label="Zoom in">+</button><button id="reset" class="reset">Fit view</button></div></footer>
-<script src="drawings.js?v=30.1"></script>
+<footer class="bottom"><p class="help">TAP A SPACE / DRAG TO PAN / PINCH TO ZOOM<br>VECTOR DRAWING / UNITS mm</p><div class="zoom"><button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-value" aria-label="Zoom relative to fit">100%</output><button id="zoom-in" aria-label="Zoom in">+</button><button id="reset" class="reset">Fit view</button></div></footer>
+<script src="drawings.js?v=31.1"></script>
 </body></html>

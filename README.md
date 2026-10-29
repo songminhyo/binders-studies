@@ -1,5 +1,3 @@
-# BINDERS / R30 aligned Printing Room robots
+# BINDERS / R31 spatial explorer
 
-https://songminhyo.github.io/binders-studies/?v=30.1#drawings/b
-
-All four robots on the dashed rails share one rightmost outline alignment. Their native geometry, scale and directions are preserved. The sculpture and its frame are moved between the second and third rails, counted from the top. Both overall and detail vector plans and PDF downloads are synchronized. Original sources and mass/timber payloads are unchanged.
+Tap a room or use Choose a space to focus smoothly and see a short English description. Overall-plan selections can open the matching detail plan. Play process visits Printing, Heating, Incubating, Inoculation and Pickup with pause controls. Manual pan/zoom, sheet switches, hidden studies and reduced-motion preferences cancel or limit motion. All R08 vector drawings/PDFs and mass/timber payloads are unchanged.
