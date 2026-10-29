@@ -13,14 +13,19 @@
  let gesture=null,pendingLoadResolve=null;
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
  function draw(){
-  image.style.transform=`translate(${x}px,${y}px) scale(${scale})`;
-  overlay.style.transform=image.style.transform;
+  // Resize the SVG viewport at the actual zoom level. Never stretch a cached compositor bitmap.
+  const width=`${2384*scale}px`,height=`${1684*scale}px`;
+  for(const element of [image,overlay]){
+   element.style.transform='none';element.style.left=`${x}px`;element.style.top=`${y}px`;
+   element.style.width=width;element.style.height=height;
+  }
+  const box=mode==='sheet'?[0,0,2384,1684]:sheets[sheet].crop;
+  image.style.clipPath=mode==='sheet'?'none':`inset(${box[1]*scale}px ${(2384-box[2])*scale}px ${(1684-box[3])*scale}px ${box[0]*scale}px)`;
   $('zoom-value').value=`${Math.round(scale/fitScale*100)}%`;
   $('zoom-value').textContent=$('zoom-value').value;
  }
  function fit(){
   const r=stage.getBoundingClientRect(),box=mode==='sheet'?[0,0,2384,1684]:sheets[sheet].crop;
-  image.style.clipPath=mode==='sheet'?'none':`inset(${box[1]}px ${2384-box[2]}px ${1684-box[3]}px ${box[0]}px)`;
   fitScale=Math.min((r.width-24)/(box[2]-box[0]),(r.height-24)/(box[3]-box[1]));
   fitScale=Math.max(.01,fitScale);scale=fitScale;
   x=(r.width-(box[2]-box[0])*scale)/2-box[0]*scale;
