@@ -1,3 +1,3 @@
-# BINDERS / R34 refined assembly guides
+# BINDERS / R35
 
-Timber alignment guides connect actual mesh vertices to their seated positions, with opposing anchors and a maximum of three guided members. Dashed lines use constant screen spacing, fade in/out and disappear as connections seat. Guides can be toggled. Paused component-stage playback resumes within the same bounded stage. Static frames avoid redundant GPU drawing; viewport/interaction changes redraw immediately. A simple tap retains the named camera orientation. Original mass payload, source timber scene data, R08 SVG/PDF geometry and crisp drawing zoom are unchanged.
+Timber alignment guides, the Guides toggle and its legend are removed. Component selection, assembly playback, bounded stage pause/resume, idle redraw optimization and plan links are retained. Original geometry, mass study and drawing assets are unchanged.
