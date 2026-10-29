@@ -831,6 +831,7 @@
  $('process-play').onclick=togglePlayback;
  function resetExplorer(){stopPlayback();stopMotion();clearSpace();fit();}
  $('close-space').onclick=resetExplorer;
+ $('view-structure').onclick=()=>{if(!selectedSpace)return;stopPlayback();stopMotion();if(parent!==window)parent.postMessage({type:'open-timber-study',spaceId:selectedSpace.id},location.origin);else location.href='index.html#timber/'+selectedSpace.sheet.toUpperCase();};
  $('open-detail').onclick=async()=>{if(!selectedSpace)return;const id=selectedSpace.id,key=selectedSpace.sheet;if(await select(key))focusSpace(id);};
  card.addEventListener('pointerdown',e=>e.stopPropagation());
  card.addEventListener('wheel',e=>e.stopPropagation(),{passive:true});
@@ -899,8 +900,9 @@
  });
  let resizeFrame=0;
  new ResizeObserver(()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{stopMotion();fit();if(selectedSpace)animateCamera(cameraForSpace(selectedSpace),0);});}).observe(stage);
- window.addEventListener('message',e=>{
+ window.addEventListener('message',async e=>{
   if(e.source!==parent||e.origin!==location.origin)return;
+  if(e.data?.type==='focus-drawing-space'&&sheets[e.data.sheet]&&spaces.some(s=>s.id===e.data.spaceId&&s.sheet===e.data.sheet)){const ok=sheet===e.data.sheet&&loaded?true:await select(e.data.sheet);if(ok)focusSpace(e.data.spaceId);return;}
   if(e.data?.type==='study-active'&&!e.data.active){stopPlayback();stopMotion();}
   if(e.data?.type==='select-drawing'&&sheets[e.data.sheet]&&sheet!==e.data.sheet)select(e.data.sheet);
  });
