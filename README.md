@@ -1,5 +1,5 @@
-# BINDERS / R28 original CAD rails
+# BINDERS / R29 live original CAD rails
 
-https://songminhyo.github.io/binders-studies/#drawings/b
+https://songminhyo.github.io/binders-studies/?v=29.1#drawings/b
 
-Printing Room rails use the original CAD rail block 970F3 / rail-final (775 native primitives verified against original_live_r11.dxf). All generated Printing Room rail connectors are removed. The native CAD floor-rail block is preserved without resampling, extending or changing its profile. Prior label sizing, gates, cabinets, sculpture, pods and Lounge updates are retained. Mass/timber payloads are unchanged.
+Printing Room: eight HIDDEN rail polylines (four double dashed frames), four original round-base robot positions and directions, and native sculpture 72FAE with frame 72225 are restored from the currently open original 평면도_졸전.dwg. Original perimeter and lower U-shaped rails are retained. The source DWG is unchanged. Previous room annotations, gates, cabinets, pods, pickup grid and Lounge updates are retained. Mass/timber payloads are unchanged.
