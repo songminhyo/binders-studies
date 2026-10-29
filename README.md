@@ -1,5 +1,5 @@
-# BINDERS / R29 live original CAD rails
+# BINDERS / R30 aligned Printing Room robots
 
-https://songminhyo.github.io/binders-studies/?v=29.1#drawings/b
+https://songminhyo.github.io/binders-studies/?v=30.1#drawings/b
 
-Printing Room: eight HIDDEN rail polylines (four double dashed frames), four original round-base robot positions and directions, and native sculpture 72FAE with frame 72225 are restored from the currently open original 평면도_졸전.dwg. Original perimeter and lower U-shaped rails are retained. The source DWG is unchanged. Previous room annotations, gates, cabinets, pods, pickup grid and Lounge updates are retained. Mass/timber payloads are unchanged.
+All four robots on the dashed rails share one rightmost outline alignment. Their native geometry, scale and directions are preserved. The sculpture and its frame are moved between the second and third rails, counted from the top. Both overall and detail vector plans and PDF downloads are synchronized. Original sources and mass/timber payloads are unchanged.
